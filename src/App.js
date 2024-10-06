@@ -1,31 +1,25 @@
-import "./App.css";
-import { Route, Switch } from "react-router-dom";
-import Welcome from "./pages/Welcome";
-import Products from "./pages/Products";
-import MainHeader from "./components/MainHeader";
-import ProductDetail from "./pages/ProductDetail";
+import { Switch, Route } from 'react-router-dom';
+
+import Layout from './components/Layout/Layout';
+import UserProfile from './components/Profile/UserProfile';
+import AuthPage from './pages/AuthPage';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <div className="App">
-      <MainHeader />
-      <main>
-        <Switch>
-          {/* <Route to="/" exact>
-            <Redirect to='/welcome'/>
-          </Route> */}
-          <Route path="/welcome">
-            <Welcome />
-          </Route>
-          <Route path="/products">
-            <Products />
-          </Route>
-          <Route path="/products/:productId">
-            <ProductDetail />
-          </Route>
-        </Switch>
-      </main>
-    </div>
+    <Layout>
+      <Switch>
+        <Route path='/' exact>
+          <HomePage />
+        </Route>
+        <Route path='/auth'>
+          <AuthPage />
+        </Route>
+        <Route path='/profile'>
+          <UserProfile />
+        </Route>
+      </Switch>
+    </Layout>
   );
 }
 
